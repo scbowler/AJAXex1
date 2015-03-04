@@ -14,13 +14,15 @@
             var my_li = this;
             $(this).click(function()
             {
-                console.log($(this).attr('data-url'));
-                var get_url = 'your url';
+                //console.log($(this).attr('data-url'));
+                //console.log($(this).data('url'));
+                //var get_url = $(this).data('url');
                 
                 /*put your ajax code here*/
-                $.get(get_url,function(data)
+                $.get($(this).data('url') ,function(data)
                     {
                         //fill the contents of #main_content with the data of the retrieved file
+                        $('#main_content').html(data);
                     });
                     
                     
@@ -31,6 +33,7 @@
 </head>
 <body>
     <header>
+       This is my header
         <nav class="navbar navbar-default">
             <ul id="main_nav" class="nav navbar-nav pull-right">
                 <li data-url="page1.html"><a href="#">Page 1</a></li>
@@ -38,7 +41,7 @@
                 <li data-url="page3.html"><a href="#">Page 3</a></li>
             </ul>
         </nav>
-                This is my header
+                
     
     </header>
     <main id="main_content">This is my main content</main>
