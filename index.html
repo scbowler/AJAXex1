@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax template loading</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+<script>
+    $("document").ready(function()
+    {
+        $("#main_nav li").each(function()
+        {
+            var my_li = this;
+            $(this).click(function()
+            {
+                console.log($(this).attr('data-url'));
+                var get_url = 'your url';
+                
+                /*put your ajax code here*/
+                $.get(get_url,function(data)
+                    {
+                        //fill the contents of #main_content with the data of the retrieved file
+                    });
+                    
+                    
+            });
+        });
+    });
+</script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <ul id="main_nav" class="nav navbar-nav pull-right">
+                <li data-url="page1.html"><a href="#">Page 1</a></li>
+                <li data-url="page2.html"><a href="#">Page 2</a></li>
+                <li data-url="page3.html"><a href="#">Page 3</a></li>
+            </ul>
+        </nav>
+                This is my header
+    
+    </header>
+    <main id="main_content">This is my main content</main>
+    <footer>This is my footer</footer>
+
+
+
+</body>
+</html>
